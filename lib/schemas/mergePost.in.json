@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "fileName": {
+                    "example": "test.pdf",
+                    "type": "string"
+                },
+                "inlinePdf": {
+                    "example": true,
+                    "type": "boolean"
+                },
+                "urls": {
+                    "example": [
+                        "link-to-pdf1",
+                        "link-to-pdf2",
+                        "link-to-pdf3"
+                    ],
+                    "format": "list of urls to pdfs",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "urls"
+            ],
+            "type": "object"
+        }
+    }
+}

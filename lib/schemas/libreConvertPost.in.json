@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "fileName": {
+                    "example": "test.pdf",
+                    "type": "string"
+                },
+                "inlinePdf": {
+                    "example": true,
+                    "type": "boolean"
+                },
+                "url": {
+                    "example": "https://www.api2pdf.com/wp-content/themes/api2pdf/assets/samples/sample-word-doc.docx",
+                    "format": "url",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "url"
+            ],
+            "type": "object"
+        }
+    }
+}

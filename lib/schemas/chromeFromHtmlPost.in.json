@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "fileName": {
+                    "example": "test.pdf",
+                    "type": "string"
+                },
+                "html": {
+                    "example": "<p>Hello World</p>",
+                    "format": "html",
+                    "type": "string"
+                },
+                "inlinePdf": {
+                    "example": true,
+                    "type": "boolean"
+                },
+                "options": {
+                    "properties": {
+                        "landscape": {
+                            "example": "true",
+                            "type": "string"
+                        },
+                        "printBackground": {
+                            "example": false,
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "html"
+            ],
+            "type": "object"
+        }
+    }
+}

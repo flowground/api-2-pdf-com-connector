@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "required": true,
+            "type": "string"
+        },
+        "value": {
+            "required": true,
+            "type": "string"
+        },
+        "showlabel": {
+            "type": "boolean"
+        },
+        "height": {
+            "type": "integer"
+        },
+        "width": {
+            "type": "integer"
+        }
+    }
+}

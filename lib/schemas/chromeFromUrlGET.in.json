@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "url": {
+            "required": true,
+            "type": "string"
+        },
+        "output": {
+            "type": "string"
+        }
+    }
+}

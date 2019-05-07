@@ -1,0 +1,195 @@
+{
+    "title": "Api2Pdf - PDF Generation, Powered by AWS Lambda",
+    "description": "\n# Introduction\n[Api2Pdf](https://www.api2pdf.com) is a powerful PDF generation API with no rate limits or file size constraints. Api2Pdf runs on AWS Lambda, a serverless architecture powered by Amazon to scale to millions of requests while being up to 90% cheaper than alternatives. **Supports wkhtmltopdf, Headless Chrome, LibreOffice, and PDF Merge.** You can also generate barcodes with ZXING (Zebra Crossing).\n# SDKs & Client Libraries\nWe've made a number of open source libraries available for the API\n- Python: [https://github.com/api2pdf/api2pdf.python](https://github.com/api2pdf/api2pdf.python)\n- .NET: [https://github.com/api2pdf/api2pdf.dotnet](https://github.com/api2pdf/api2pdf.dotnet)\n- Nodejs: [https://github.com/api2pdf/api2pdf.node](https://github.com/api2pdf/api2pdf.node)\n- PHP: [https://github.com/Api2Pdf/api2pdf.php](https://github.com/Api2Pdf/api2pdf.php)\n- Ruby: (Coming soon)\n# Authorization\nCreate an account at [portal.api2pdf.com](https://portal.api2pdf.com/register) to get an API key.\n\n**Authorize your API calls**\n- GET requests, include apikey=YOUR-API-KEY as a query string parameter\n- POST requests, add **Authorization** to your header.\n``` Authorization: YOUR-API-KEY ```\n\n# Quickstart\nIf you are looking for just a quick call to grab PDFs of a URL, you can do a GET request like:\n``` https://v2018.api2pdf.com/chrome/url?url={UrlToConvert}&apikey={YourApiKey} ```\n\nFor more advanced usage and settings, see the API specification below.\n",
+    "docsUrl": "https://www.api2pdf.com",
+    "url": "https://api.apis.guru/v2/specs/api2pdf.com/1.0.0/openapi.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://v2018.api2pdf.com - Api2Pdf.com API",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "HeaderApiKey": {
+                "label": "Authorization (HeaderApiKey)",
+                "viewClass": "TextFieldView"
+            },
+            "QueryApiKey": {
+                "label": "apikey (QueryApiKey)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "chromeFromHtmlPost": {
+            "main": "./lib/actions/chromeFromHtmlPost.js",
+            "title": "Convert raw HTML to PDF",
+            "description": "Convert HTML to a PDF using Headless Chrome on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chromeFromHtmlPost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chromeFromUrlGET": {
+            "main": "./lib/actions/chromeFromUrlGET.js",
+            "title": "Convert URL to PDF",
+            "description": "Convert a URL or Web Page to PDF using Headless Chrome on AWS Lambda. This GET request is for convenience and does not support advanced options. Use the POST request for more flexibility.\n### Authorize via Query String Parameter\n**apikey=YOUR-API-KEY**\n### Example\n``` https://v2018.api2pdf.com/chrome/url?url={UrlToConvert}&apikey={YourApiKey} ``` ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chromeFromUrlGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chromeFromUrlPost": {
+            "main": "./lib/actions/chromeFromUrlPost.js",
+            "title": "Convert URL to PDF",
+            "description": "Convert a URL or Web Page to PDF using Headless Chrome on AWS Lambda..\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chromeFromUrlPost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "libreConvertPost": {
+            "main": "./lib/actions/libreConvertPost.js",
+            "title": "Convert office document or image to PDF",
+            "description": "Convert an office document (Word, Excel, Powerpoint) or an image (jpg, gif, png) to a PDF using LibreOffice on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/libreConvertPost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "mergePost": {
+            "main": "./lib/actions/mergePost.js",
+            "title": "Merge multiple PDFs together",
+            "description": "Merge two or more PDFs together on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/mergePost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "wkhtmltopdfFromHtmlPost": {
+            "main": "./lib/actions/wkhtmltopdfFromHtmlPost.js",
+            "title": "Convert raw HTML to PDF",
+            "description": "Convert HTML to a PDF using WkHtmlToPdf on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/wkhtmltopdfFromHtmlPost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "wkhtmltopdfFromUrlGET": {
+            "main": "./lib/actions/wkhtmltopdfFromUrlGET.js",
+            "title": "Convert URL to PDF",
+            "description": "Convert a URL or Web Page to PDF using WkHtmlToPdf on AWS Lambda. This GET request is for convenience and does not support advanced options. Use the POST request for more flexibility.\n### Authorize via Query String Parameter\n**apikey=YOUR-API-KEY**\n### Example\n``` https://v2018.api2pdf.com/wkhtmltopdf/url?url={UrlToConvert}&apikey={YourApiKey} ``` ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/wkhtmltopdfFromUrlGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "wkhtmltopdfFromUrlPost": {
+            "main": "./lib/actions/wkhtmltopdfFromUrlPost.js",
+            "title": "Convert URL to PDF",
+            "description": "Convert a URL or Web Page to PDF using WkHtmlToPdf on AWS Lambda..\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/wkhtmltopdfFromUrlPost.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "zebraGET": {
+            "main": "./lib/actions/zebraGET.js",
+            "title": "Generate bar codes and QR codes with ZXING.",
+            "description": "See full list of options and documentation [here](https://www.api2pdf.com/documentation/advanced-options-zxing-zebra-crossing-barcodes/)\n### Authorize via Query String Parameter\n**apikey=YOUR-API-KEY**\n### Example\n``` https://v2018.api2pdf.com/zebra?format={format}&apikey={YourApiKey}&value={YourText} ``` ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/zebraGET.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

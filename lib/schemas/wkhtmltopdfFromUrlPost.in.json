@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "fileName": {
+                    "example": "test.pdf",
+                    "type": "string"
+                },
+                "inlinePdf": {
+                    "example": true,
+                    "type": "boolean"
+                },
+                "options": {
+                    "properties": {
+                        "orientation": {
+                            "example": "landscape",
+                            "type": "string"
+                        },
+                        "pageSize": {
+                            "example": "A4",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "url": {
+                    "example": "https://www.github.com",
+                    "format": "url",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "url"
+            ],
+            "type": "object"
+        }
+    }
+}
