@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) Api2Pdf - PDF Generation, Powered by AWS Lambda MSP Connector
+# ![LOGO](logo.png) Api2Pdf - PDF Generation, Powered by AWS Lambda **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the Api2Pdf - PDF Generation, Powered by AWS Lambda API (version 1.0.0).
+A generated **flow**ground connector for the Api2Pdf - PDF Generation, Powered by AWS Lambda API (version 1.0.0).
 
 Generated from: https://api.apis.guru/v2/specs/api2pdf.com/1.0.0/openapi.json<br/>
-Generated at: 2019-05-07T11:16:57+03:00
+Generated at: 2019-05-07T17:36:37+03:00
 
 ## API Description
 
@@ -135,7 +135,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / api-2-pdf-com-connector<br/>
+**flow**ground :- Telekom iPaaS / api-2-pdf-com-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
